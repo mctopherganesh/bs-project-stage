@@ -1,0 +1,6 @@
+discord
+datetime
+psycopg2
+pandas
+flask
+gunicorn
