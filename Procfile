@@ -1,1 +1,1 @@
-worker: python dis_test.py
+worker: python printtest.py

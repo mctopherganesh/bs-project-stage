@@ -8,8 +8,8 @@ TOKEN = os.environ.get('discord_token')
 client = commands.Bot(command_prefix = '$')
 
 @client.command()
-async def ping(ctx):
-    await ctx.send(f'Pong! (round(client.latency*1000))ms')
+async def test(ctx):
+    await ctx.send('testies testies one two three?')
 
 
 # https://discordpy.readthedocs.io/en/latest/ext/commands/commands.html
