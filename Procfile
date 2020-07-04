@@ -1,1 +1,1 @@
-worker: python printtest.py
+worker: python bs_bot.py
