@@ -54,7 +54,7 @@ async def test(ctx):
 
 @client.event
 async def on_ready():
-    print('Logged in as' flush=True)
+    print('Logged in as', flush=True)
     print(client.user.name, flush=True)
     print(client.user.id, flush=True)
     print('------', flush=True)
