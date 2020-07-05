@@ -15,7 +15,7 @@ def close_connect_to_db(cursor, conn):
 def create_table():
     tables = """
     create table test_bs (
-        date_time varchar(25)
+        date_time varchar(25) not null,
         blood_sugar integer not null
     )
     """,
