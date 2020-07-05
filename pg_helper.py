@@ -14,7 +14,7 @@ def close_connect_to_db(cursor, conn):
     conn.close()
 
 def create_table():
-    tables = """
+    table = """
     create table test_bs (
         id integer not null,
         date_time varchar(25) not null,
