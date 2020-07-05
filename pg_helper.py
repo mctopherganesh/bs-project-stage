@@ -15,7 +15,7 @@ def close_connect_to_db(cursor, conn):
 
 def create_table():
     table = """
-    create table test_bs (
+    create table bs_test_table (
         id integer not null,
         date_time varchar(25) not null,
         blood_sugar integer not null
@@ -32,17 +32,23 @@ def load_csv_data():
     cur, conn = open_connect_to_db()
     with open('blood_sugar_dataframe.csv','r') as f:
         next(f)
-        cur.copy_from(f, 'test_bs', sep=',')
+        cur.copy_from(f, 'bs_test_table', sep=',')
 
     conn.commit()
     cur.close()
 
 def return_table_data():
     cur, conn = open_connect_to_db()
-    cur.execute('select * from test_bs')
+    cur.execute('select * from bs_test_table')
     cur.fetchall()
     close_connect_to_db(cur, conn)
 
+def drop_old_table():
+    cur, conn = open_connect_to_db()
+    drop_statement = """drop table test_bs"""
+    cur.execute(drop_statement)
+    conn.commit()
+    cur.close()
 
 
 
