@@ -4,7 +4,7 @@ import pg_helper
 from discord.ext import commands
 
 
-# import dis_helper
+
 
 TOKEN = os.environ.get('discord_token')
 
@@ -63,6 +63,7 @@ async def on_ready():
     print('------', flush=True)
 
 pg_helper.create_table()
+pg_helper.load_csv_data()
 pg_helper.return_table_data()
 
 
