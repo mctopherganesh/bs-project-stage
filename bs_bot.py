@@ -1,11 +1,14 @@
-import discord
-from discord.ext import commands
 import os
+import discord
+import pg_helper
+from discord.ext import commands
+
+
 # import dis_helper
 
 TOKEN = os.environ.get('discord_token')
 
-client = commands.Bot(command_prefix = '$')
+client = commands.Bot(command_prefix = '.')
 
 @client.command()
 async def test(ctx):
@@ -58,6 +61,8 @@ async def on_ready():
     print(client.user.name, flush=True)
     print(client.user.id, flush=True)
     print('------', flush=True)
+
+pg_helper.connect_to_db()
 
 
 client.run(TOKEN)
