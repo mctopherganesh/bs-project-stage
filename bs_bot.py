@@ -17,15 +17,19 @@ client = commands.Bot(command_prefix = '.')
 async def test(ctx):
     await ctx.send('testies testies one two three?')
 
-# @client.command()
-# async def bs(ctx, arg):
-#     current_time = datetime.datetime.now()
-#     datestamp = current_time.strftime("%Y-%m-%d %H:%M:%S")
-#     bs = arg.strip()
-#     cur, conn = pg_helper.open_connect_to_db()
 
-########################  was working here ############################
-#     cur.execute('insert into test_bs(datetime,bs_measure)') 
+
+@client.command()
+async def bs(ctx, arg):
+    current_time = datetime.datetime.now()
+    datestamp = current_time.strftime("%Y-%m-%d %H:%M:%S")
+    bs = arg.strip()
+    pg_helper.enter_bs_row(bs,datestamp)
+    await ctx.send('new row written!\n' + str(pg_helper.return_last_five()))
+    
+
+#######################  was working here ############################
+    
 
 
 

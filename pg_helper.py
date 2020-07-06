@@ -13,8 +13,11 @@ def close_connect_to_db(cursor, conn):
     cursor.close()
     conn.close()
 
-def enter_bs_row():
-    pass
+def enter_bs_row(bs,dtsmp):
+    cur, conn = open_connect_to_db()
+    insert_statement = """insert into bs_test(datestamp, bs_measure)
+                          values ({}, {});""".format(bs, dtsmp)
+    cur.execute(insert_statement)
 
 def create_table():
     table = """
@@ -44,6 +47,11 @@ def return_table_data():
     cur.execute('select * from bs_test')
     print(cur.fetchall(), flush=True)
     close_connect_to_db(cur, conn)
+
+def return_last_five():
+    cur, conn = open_connect_to_db()
+    cur.execute('select * from bs_test order by datetime limit 5 desc;')
+    return cur.fetchall()
 
 def drop_old_table():
     cur, conn = open_connect_to_db()
