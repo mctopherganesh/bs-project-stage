@@ -62,10 +62,10 @@ async def on_ready():
     print(client.user.id, flush=True)
     print('------', flush=True)
 
-pg_helper.drop_old_table()
-pg_helper.create_table()
-pg_helper.load_csv_data()
-pg_helper.return_table_data()
+#pg_helper.drop_old_table()
+#pg_helper.create_table()
+#pg_helper.load_csv_data()
+#pg_helper.return_table_data()
 
 
 
