@@ -13,7 +13,8 @@ def close_connect_to_db(cursor, conn):
     cursor.close()
     conn.close()
 
-def enter_bs_row()
+def enter_bs_row():
+    pass
 
 def create_table():
     table = """
