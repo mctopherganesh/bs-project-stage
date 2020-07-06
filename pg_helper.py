@@ -18,10 +18,9 @@ def enter_bs_row():
 
 def create_table():
     table = """
-    create table test_bs (
-        id integer not null,
-        date_time varchar(25) not null,
-        blood_sugar numeric not null
+    create table bs_test (
+        datetime varchar(25) not null,
+        bs_measure numeric not null
     )
     """
     cur,conn = open_connect_to_db()
@@ -42,7 +41,7 @@ def load_csv_data():
 
 def return_table_data():
     cur, conn = open_connect_to_db()
-    cur.execute('select * from test_bs')
+    cur.execute('select * from bs_test')
     print(cur.fetchall(), flush=True)
     close_connect_to_db(cur, conn)
 
@@ -54,5 +53,7 @@ def drop_old_table():
     cur.close()
 
 
-
+# table names 
+# test_bs as of 07/06/2020
+# using bs_test for the update
    
