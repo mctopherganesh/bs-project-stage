@@ -34,7 +34,7 @@ def load_csv_data():
     cur, conn = open_connect_to_db()
     with open('blood_sugar_dataframe.csv','r') as f:
         next(f)
-        cur.copy_from(f, 'test_bs', sep=',')
+        cur.copy_from(f, 'bs_test', sep=',')
 
     conn.commit()
     cur.close()
@@ -47,7 +47,7 @@ def return_table_data():
 
 def drop_old_table():
     cur, conn = open_connect_to_db()
-    drop_statement = """drop table bs_test_table"""
+    drop_statement = """drop table bs_test"""
     cur.execute(drop_statement)
     conn.commit()
     cur.close()
