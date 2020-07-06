@@ -1,7 +1,10 @@
 import os
 import discord
 import pg_helper
+import datetime
+import data_transformer
 from discord.ext import commands
+
 
 
 
@@ -13,6 +16,17 @@ client = commands.Bot(command_prefix = '.')
 @client.command()
 async def test(ctx):
     await ctx.send('testies testies one two three?')
+
+# @client.command()
+# async def bs(ctx, arg):
+#     current_time = datetime.datetime.now()
+#     datestamp = current_time.strftime("%Y-%m-%d %H:%M:%S")
+#     bs = arg.strip()
+#     cur, conn = pg_helper.open_connect_to_db()
+
+########################  was working here ############################
+#     cur.execute('insert into test_bs(datetime,bs_measure)') 
+
 
 
 # https://discordpy.readthedocs.io/en/latest/ext/commands/commands.html
