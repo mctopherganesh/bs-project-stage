@@ -84,7 +84,7 @@ async def on_ready():
 #pg_helper.create_table()
 #pg_helper.load_csv_data()
 #pg_helper.return_table_data()
-data_transformer.transform_data()
+#data_transformer.transform_data()
 
 
 client.run(TOKEN)

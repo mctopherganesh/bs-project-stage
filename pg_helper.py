@@ -16,8 +16,10 @@ def close_connect_to_db(cursor, conn):
 def enter_bs_row(bs,dtsmp):
     cur, conn = open_connect_to_db()
     insert_statement = """insert into bs_test(datestamp, bs_measure)
-                          values ({}, {});""".format(dtsmp, bs)
+                          values ('{}', {});""".format(dtsmp, bs)
     cur.execute(insert_statement)
+    conn.commit()
+    cur.close()
 
 def create_table():
     table = """
