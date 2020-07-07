@@ -16,7 +16,7 @@ def close_connect_to_db(cursor, conn):
 def enter_bs_row(bs,dtsmp):
     cur, conn = open_connect_to_db()
     insert_statement = """insert into bs_test(datetime, bs_measure)
-                          values ('{}', {});""".format(dtsmp, bs)
+                          values ({}, {});""".format(dtsmp, bs)
     cur.execute(insert_statement)
     conn.commit()
     cur.close()
@@ -52,7 +52,7 @@ def return_table_data():
 
 def return_last_five():
     cur, conn = open_connect_to_db()
-    cur.execute('select * from bs_test order by datetime limit 5 desc;')
+    cur.execute('select * from bs_test order by datetime desc limit 5;')
     return cur.fetchall()
 
 def drop_old_table():
