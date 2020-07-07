@@ -42,6 +42,7 @@ def return_line_plot_of_last(x):
     ax.set_xticklabels(ax.get_xticklabels(), rotation=45, horizontalalignment='right')
     
     filepath_w_datestamp = 'img/lineplot_{}.png'.format(datestamp())
+    plt.tight_layout()
     plt.savefig(filepath_w_datestamp)
     plt.clf()
     return filepath_w_datestamp
