@@ -1,12 +1,15 @@
 import os
+import pytz
 import discord
 import pg_helper
 import datetime
 import data_transformer
 from discord.ext import commands
 
-
-
+def get_the_time():
+    utc_now = pytz.utc.localize(datetime.datetime.utcnow())
+    cst_now = utc_now.astimezone(pytz.timezone("America/Chicago"))
+    return cst_now.strftime("%Y-%m-%d %H:%M:%S")
 
 
 TOKEN = os.environ.get('discord_token')
@@ -21,8 +24,8 @@ async def test(ctx):
 
 @client.command()
 async def bs(ctx, arg):
-    current_time = datetime.datetime.now()
-    datestamp = current_time.strftime("%Y-%m-%d %H:%M:%S")
+    
+    datestamp = get_the_time()
     bs = arg.strip()
     pg_helper.enter_bs_row(bs,datestamp)
     await ctx.send('new row written!\n' + str(pg_helper.return_last_five()))
