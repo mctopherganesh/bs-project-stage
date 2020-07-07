@@ -29,6 +29,19 @@ def transform_data():
 def return_dist_plot():
     test_df = transform_data()
     sns.distplot(test_df['bs_measure'], vertical=True)
-    filepath_w_datestamp = 'img/dist_plot_{}.png'.format(datestamp())
+    filepath_w_datestamp = 'img/distplot_{}.png'.format(datestamp())
     plt.savefig(filepath_w_datestamp)
     return filepath_w_datestamp
+
+def return_line_plot_of_last(x):
+    df = transform_data()
+    df = df.tail(x)
+    df = df.reset_index()
+    df['datetime'] = df['datetime'].str.slice(start=5, stop=-3)
+    ax = sns.pointplot(x='datetime', y='bs_measure', data=df)
+    ax.set_xticklabels(ax.get_xticklabels(), rotation=45, horizontalalignment='right')
+    
+    filepath_w_datestamp = 'img/lineplot_{}.png'.format(datestamp())
+    plt.savefig(filepath_w_datestamp)
+    return filepath_w_datestamp
+    

@@ -31,10 +31,16 @@ async def bs(ctx, arg):
     await ctx.send('new row written!\n' + str(pg_helper.return_last_five()))
 
 @client.command()
-async def dist_plot(ctx):
+async def distplot(ctx):
     filepath = data_transformer.return_dist_plot()
     await ctx.send(file=discord.File(filepath))
-    
+
+@client.command()
+async def lineplot_of_last(ctx, arg):
+    x = arg.strip()
+    x = int(x)
+    filepath = data_transformer.return_line_plot_of_last(x)
+    await ctx.send(file=discord.File(filepath))
 
 #######################  was working here ############################
     
