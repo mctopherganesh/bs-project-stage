@@ -31,6 +31,7 @@ def return_dist_plot():
     sns.distplot(test_df['bs_measure'], vertical=True)
     filepath_w_datestamp = 'img/distplot_{}.png'.format(datestamp())
     plt.savefig(filepath_w_datestamp)
+    plt.clf()
     return filepath_w_datestamp
 
 def return_line_plot_of_last(x):
