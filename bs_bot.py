@@ -29,6 +29,11 @@ async def bs(ctx, arg):
     bs = arg.strip()
     pg_helper.enter_bs_row(bs,datestamp)
     await ctx.send('new row written!\n' + str(pg_helper.return_last_five()))
+
+@client.command()
+async def dist_plot(ctx):
+    filepath = data_transformer.return_dist_plot()
+    await ctx.send(file=discord.File(filepath))
     
 
 #######################  was working here ############################
