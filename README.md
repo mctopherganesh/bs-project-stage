@@ -8,6 +8,6 @@ I wanted to make something that I could input my blood sugar measure into and ge
 
 I used Discord to create a bot that would respond to specific commands and had built in functions I could call to get data about my blood sugar. Here's a video because showing is better than telling:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/K2dynB2y1sg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+![there should be an awesome gif here](bs_demo.gif)
 
 Let me know what you think!
